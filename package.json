@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-chat-backend",
+  "version": "1.0.0",
+  "description": "NodeJS homework for BSA'18",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roboretska/nodejs-chat-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roboretska/nodejs-chat-backend/issues"
+  },
+  "homepage": "https://github.com/roboretska/nodejs-chat-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.2"
+  }
+}
