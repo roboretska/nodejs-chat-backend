@@ -3,6 +3,7 @@ const connection = require("../db/UserConnection").db;
 const model = require("../models/user");
 
 
+
 module.exports.getAll = function getAll() {
     const query = model.find();
     return query.exec();
@@ -35,3 +36,5 @@ module.exports.deleteUser = function deleteUser(id) {
     const query = model.findByIdAndDelete(id);
     return query.exec();
 };
+
+

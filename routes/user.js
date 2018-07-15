@@ -70,4 +70,35 @@ router.delete('/:id', (req, res) => {
 });
 
 
+router.get('/:id/chatmates', (req, res) => {
+    console.log(req.params.id);
+    userServices.getUserChatMates(req.params.id)
+        .then(data => {
+
+            console.log(data)
+
+            const ChatMatesId = [];
+            data.forEach(item =>{
+                if(item.senderId===req.params.id){
+                    ChatMatesId.push(item.receiverId)
+                }else{
+                    ChatMatesId.push(item.senderId)
+                }
+            })
+            console.log(ChatMatesId)
+
+const filter = require('../filter/Uniq')(ChatMatesId);
+
+            console.log(filter);
+            res.status(200);
+            res.json(filter);
+        })
+        .catch(err => {
+            res.status(500);
+            console.error(err);
+            res.end();
+        });
+});
+
+
 module.exports = router;

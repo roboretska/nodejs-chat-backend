@@ -38,3 +38,14 @@ module.exports.deleteMessage = function deleteMessage(id) {
     const query = model.findByIdAndDelete(id);
     return query.exec();
 };
+
+module.exports.getUserChatmates = function getUserChatmates(id) {
+
+    const query = model.aggregate([
+        {'$match': {'$or': [{'senderId': id}, {'receiverId': id}]}},
+        {'$project':{'senderId':1, 'receiverId':1, '_id':0,}},
+    ]);
+    // {_id: {'$cond': [{'senderId': id}, '$receiverId', '$senderId']}},
+    // {_id: {'$cond': [{'senderId': id}, '$receiverId', '$senderId']}}}
+    return query;
+};

@@ -1,4 +1,5 @@
 const UserRepository = require("../repositories/UserRepository");
+const MessageRepository = require('../repositories/MessageRepository')
 
 
 module.exports = {
@@ -20,6 +21,9 @@ module.exports = {
     },
     deleteUser : id =>{
         return UserRepository.deleteUser(id);
+    },
+    getUserChatMates : id => {
+        return MessageRepository.getUserChatmates(id);
     }
 };
 
